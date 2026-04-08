@@ -140,12 +140,9 @@ h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.n
   position: relative;
   margin: auto;
   width: min(92vw, 850px);
-
-   
   height: clamp(150px, 28vw, 300px);
 
   background:
-     
     linear-gradient(
       100deg,
       hsla(0, 0%, 95%, 0.88) 0%,
@@ -153,57 +150,85 @@ h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.n
       hsla(0, 0%, 95%, 0.33) 60%,
       hsla(0, 0%, 95%, 0.15) 100%
     ),
-     
     url(https://imgs.duoyu.ren/base/diary_img_02.1lceoyful1.jpg) center center / cover no-repeat;
 
   box-shadow: 1px 1px 25px 3px rgba(0,0,0,.3);
   overflow: hidden;
-  border-radius: 12px;  
+  border-radius: 12px;
+
+   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  padding-left: 5%;         
+  gap: 12px;                
+}
+
+ 
+.wrapper-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
 }
 
  
 .header,
-.content,
-.cardstatis {
-  position: absolute;
-  z-index: 1;
+.cardstatis,
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 70%;
+  pointer-events: none;  
 }
 
  
-.header{
-  width: max-content;
-  font-size: 1.875rem;
+.header {
+  font-size: clamp(1.7rem, 2.7vw, 2.375rem);
+  line-height: 1.2;
   white-space: nowrap;
-  top: 18%;
-  left: 5%;
-}
-.header::after {
-  content:'';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5%;
-  background: black;
+  font-weight: bold;
+  color: #111;
+   
 }
 
-.content {
-  font-size: 1.525rem;
-  width: 40%;
-  top: 30%;
-  left: 5%;
-}
+ 
 .cardstatis {
-  font-size: 1rem;
-  width: 40%;
-  top: 50%;
-  left: 5%;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  line-height: 1.35;
+  color: #111;
+}
+
+.value {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(2px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+ 
+.content {
+  font-size: clamp(0.95rem, 1.55vw, 1.525rem);
+  line-height: 1.45;
+  color: #111;
+  letter-spacing: 0.05em;
 }
 
  
 @media (max-width: 768px) {
   .wrapper {
-    height: clamp(135px, 52vw, 270px);
+    height: clamp(165px, 52vw, 290px);
+    gap: 10px;  
     background:
       linear-gradient(
         120deg,
@@ -214,36 +239,40 @@ h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.n
       url(https://imgs.duoyu.ren/base/diary_img_01.99txqv3rtz.jpg) center center / cover no-repeat;
   }
 
-  .content,
-  .cardstatis {
-    width: 70%;
+  .header,
+  .cardstatis,
+  .content {
+    max-width: 82%;
   }
 }
-
 </style>
 
-
 <div class="wrapper">
-    <div class="header"><a href="https://duoyu.ren/"><bi>Duō Yúrén</bi> <i class="fa-solid fa-up-right-from-square"></i></a></div>
-    
-    <div class="cardstatis">
-    <div class="value"><span id="busuanzi_container_site_uv"><i class="fa-solid fa-users"></i> <strong><a href="https://duoyu.ren/"><span id="busuanzi_site_uv"></span></a></strong></span><br><span id="busuanzi_container_site_pv"><i class="fa-solid fa-eye"></i> <a href="https://info.flagcounter.com/SonU"><strong><span id="busuanzi_site_pv"></span></strong></a></span></div>
-    <a href="https://info.flagcounter.com/ZF9Y"><img src="https://s01.flagcounter.com/count2/ZF9Y/bg_FFFFFF/txt_000000/border_FDF7E3/columns_8/maxflags_8/viewers_3/labels_1/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+  
+  <a class="wrapper-link" href="https://duoyu.ren/" target="_blank" rel="noopener noreferrer" aria-label="Open duoyu.ren"></a>
+
+  
+  <div class="header">Duō Yúrén</div>
+
+  
+  <div class="cardstatis">
+    <div class="value">
+      <span id="busuanzi_container_site_uv" class="stat-item">
+        <i class="fa-solid fa-users"></i>
+        <strong><span id="busuanzi_site_uv"></span></strong>
+      </span>
+      <span id="busuanzi_container_site_pv" class="stat-item">
+        <i class="fa-solid fa-eye"></i>
+        <strong><span id="busuanzi_site_pv"></span></strong>
+      </span>
     </div>
-</div>
+  </div>
 
-<div class="mainbody">
-<div class="flag">
-<div class="flag-title">Visitor Flags</div>
-<div class="flagcol">
-<a href="https://info.flagcounter.com/ZF9Y"><img src="https://s01.flagcounter.com/count2/ZF9Y/bg_FFFFFF/txt_000000/border_FDF7E3/columns_8/maxflags_8/viewers_3/labels_1/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+  
+  <div class="content">
+    流水十年間
+  </div>
 </div>
-<div id="flag-container">
-<a href="https://info.flagcounter.com/KzVT"><img src="https://s01.flagcounter.com/map/KzVT/size_l/txt_000000/border_FDF7E3/pageviews_1/viewers_3/flags_0/" alt="Flag Counter" border="0"></a>
-</div>
-</div>
-</div>
-
 
 
      
